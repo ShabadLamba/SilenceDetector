@@ -1,0 +1,30 @@
+.main {
+    height: 100%;
+    width: 100vw;
+    background-color: #25252b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding-top: 40px;
+    position: relative;
+    gap: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.section {
+    // padding-top: 40px;
+    position: relative;
+    width: 83vw;
+}
+
+.heading {
+    width: max-content;
+    height: max-content;
+    font-size: 56px;
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    // left: 25px;
+    letter-spacing: 0.4px;
+}
