@@ -9,7 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class RestApiService {
   // Define API
-  apiURL = 'http://localhost:3000';
+  apiURL = 'https://dev.imibot.ai/silence/helloworld';
 
   constructor(private http: HttpClient) {}
 
@@ -25,9 +25,13 @@ export class RestApiService {
   };
 
   // HttpClient API get() method => Fetch audios list
-  getAudios(): Observable<Audio> {
+  getHelloWorld(url): Observable<any> {
+    return this.http.get<any>(url).pipe(retry(1), catchError(this.handleError));
+  }
+
+  getAudios(url): Observable<Audio> {
     return this.http
-      .get<Audio>(this.apiURL + '/Audio')
+      .get<Audio>(url + '/Audio')
       .pipe(retry(1), catchError(this.handleError));
   }
 
