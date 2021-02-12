@@ -1,6 +1,6 @@
 .container {
-    width: 40vw;
-    height: 554px;
+    width: 35vw;
+    height: 454px;
     background-color: #2c2c32;
     display: flex;
     justify-content: center;
@@ -13,4 +13,26 @@
     padding-top: 30px;
     position: absolute;
     letter-spacing: 1px;
+}
+
+.upload {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: stretch;
+    height: stretch;
+    .upload-button {
+        margin-top: 50px;
+        cursor: pointer;
+    }
+}
+
+::ng-deep {
+    .mat-dialog-container {
+        background: #2c2c32 !important;
+    }
+    .cdk-overlay-pane {
+        justify-content: center;
+    }
 }
