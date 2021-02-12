@@ -9,7 +9,7 @@ import { of, Subject } from 'rxjs';
 import { Observable } from 'rxjs';
 
 const url = 'http://localhost:8000/upload';
-const url2 = 'http://dev.imibot.ai/silence/detect';
+const url2 = 'https://dev.imibot.ai/silence/detect';
 
 @Injectable({
   providedIn: 'root',
