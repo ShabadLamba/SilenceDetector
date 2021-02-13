@@ -41,7 +41,7 @@ export class OutputsComponent implements OnInit {
   showStitchedAudio() {
     this.showStitched = true;
   }
-  // openUrl(url) {
-  //   window.open(url, '_blank');
-  // }
+  openUrl(url) {
+    window.open(url, '_blank');
+  }
 }
