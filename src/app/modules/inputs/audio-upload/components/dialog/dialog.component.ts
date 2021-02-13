@@ -4,6 +4,7 @@ import { UploadService } from '../../services/upload.service';
 import { forkJoin } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ConstantsServiceService } from 'src/app/shared/services/constants-service.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dialog',
@@ -15,7 +16,8 @@ export class DialogComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogComponent>,
     public uploadService: UploadService,
     private http: HttpClient,
-    private constantsService: ConstantsServiceService
+    private constantsService: ConstantsServiceService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {}
@@ -32,6 +34,8 @@ export class DialogComponent implements OnInit {
   uploading = false;
   error = false;
 
+  audioFile;
+
   addFiles() {
     this.file.nativeElement.click();
   }
@@ -43,7 +47,12 @@ export class DialogComponent implements OnInit {
         this.files.add(files[key]);
       }
     }
+    console.log(this.file);
     this.fileAdded = true;
+    this.audioFile = this.sanitizer.bypassSecurityTrustUrl(
+      URL.createObjectURL(this.file.nativeElement.files[0])
+    );
+    // this.audioFile = URL.createObjectURL(this.file.nativeElement.files[0]);
   }
 
   closeDialog() {
@@ -120,7 +129,7 @@ export class DialogComponent implements OnInit {
             );
             this.canBeClosed = true;
             this.dialogRef.disableClose = false;
-            this.dialogRef.close();
+            this.dialogRef.close({ data: true });
             this.uploading = false;
           }
         },

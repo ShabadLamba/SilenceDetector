@@ -19,6 +19,9 @@
                 <mat-progress-bar *ngIf="progress" mode="determinate" [value]="progress[file.name].progress | async"></mat-progress-bar>
             </mat-list-item>
         </mat-list>
+        <audio *ngIf="audioFile" controls>
+      <source [src]="audioFile" type="audio/wav" />
+    </audio>
     </div>
 
     <!-- This are the actions of the dialog, containing the primary and the cancel button-->

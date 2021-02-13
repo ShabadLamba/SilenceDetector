@@ -129,7 +129,7 @@ export class DialogRecordComponent implements OnInit {
               );
               this.canBeClosed = true;
               this.dialogRef.disableClose = false;
-              this.dialogRef.close();
+              this.dialogRef.close({ data: true });
               this.uploading = false;
             }
           },

@@ -3,10 +3,10 @@
         <div class="heading">Silence Detector</div>
     </div>
     <div class="section">
-        <app-inputs></app-inputs>
+        <app-inputs (showOutputComponent)="showOutput($event)"></app-inputs>
     </div>
 
-    <div class="section" style="display: flex; justify-content: center; align-items: center">
+    <div *ngIf="isOutputReady" class="section" style="display: flex; justify-content: center; align-items: center">
         <app-outputs></app-outputs>
     </div>
 </div>

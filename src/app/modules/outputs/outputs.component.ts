@@ -17,8 +17,14 @@ export class OutputsComponent implements OnInit {
   originalAudioUrl: string;
   stitchedAudioUrl: string;
   showAudioButtons = false;
+  showOriginal = false;
+  showStitched = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAudioUrls();
+    this.showOriginal = true;
+    this.showStitched = true;
+  }
 
   getAudioUrls() {
     this.originalAudioUrl = this.constantsService.getOriginalURL();
@@ -28,7 +34,14 @@ export class OutputsComponent implements OnInit {
     this.showAudioButtons = true;
   }
 
-  openUrl(url) {
-    window.open(url, '_blank');
+  showOriginalAudio() {
+    this.showOriginal = true;
   }
+
+  showStitchedAudio() {
+    this.showStitched = true;
+  }
+  // openUrl(url) {
+  //   window.open(url, '_blank');
+  // }
 }

@@ -1,37 +1,24 @@
 <div class="container">
-    <button mat-raised-button color="primary" class="button" (click)="getAudioUrls()">
+    <!-- <button mat-raised-button color="primary" class="button" (click)="getAudioUrls()">
     Click me to download the Audio
-  </button>
-    <div style="display: flex; gap: 20px; margin-top: 20px" *ngIf="showAudioButtons">
-        <button mat-raised-button class="output" (click)="openUrl(this.originalAudioUrl)">
+  </button> -->
+    <!-- <div style="width: inherit; height: inherit"> -->
+    <div class="header" *ngIf="showAudioButtons">
+        <button mat-button class="output-header" disabled (click)="showOriginalAudio()">
       Original
     </button>
-        <button mat-raised-button class="output" (click)="openUrl(this.stitchedAudioUrl)">
+
+        <button mat-button class="output-header" disabled (click)="showStitchedAudio()">
       Stitched
     </button>
     </div>
-    <!-- <audio controls autoplay>
-    <source
-      src="
-      "
-      type="audio/wav"
-    />
-    Your browser does not support the audio element.
-  </audio> -->
-
-    <!-- <audio controls="controls" preload="auto" id="audio_player">
-    <source [src]="originalAudioUrl" type="audio/x-wav" />
-  </audio> -->
-    <!-- <embed
-    src="https://silencedetect.s3.us-east-1.amazonaws.com/audio_653be2aa-b16b-4f72-a344-68cffd596894.wav"
-    width="145"
-    height="60"
-    autostart="false"
-    loop="true"
-  /> -->
-
-    <!-- <audio controls [src]="originalAudioUrl" type="audio/x-wav">
-    Your browser does not support the
-    <code>audio</code> element.
-  </audio> -->
+    <div class="output">
+        <audio controls="controls" preload="auto" id="audio_player" *ngIf="showOriginal">
+      <source [src]="originalAudioUrl" type="audio/x-wav" />
+    </audio>
+        <audio controls="controls" preload="auto" id="audio_player" *ngIf="showStitched">
+      <source [src]="stitchedAudioUrl" type="audio/x-wav" />
+    </audio>
+    </div>
+    <!-- </div> -->
 </div>
