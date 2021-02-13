@@ -20,5 +20,14 @@
       <source [src]="stitchedAudioUrl" type="audio/x-wav" />
     </audio>
     </div>
+    <div class="footer" *ngIf="showAudioButtons">
+        <button mat-raised-button class="output-header" (click)="openUrl(originalAudioUrl)">
+      <div><i class="fas fa-download"></i> Original</div>
+    </button>
+
+        <button mat-raised-button class="output-header" (click)="openUrl(stitchedAudioUrl)">
+      <div><i class="fas fa-download"></i> Stitched</div>
+    </button>
+    </div>
     <!-- </div> -->
 </div>

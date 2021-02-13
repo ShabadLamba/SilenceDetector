@@ -43,6 +43,14 @@
     }
 }
 
+.footer {
+    display: flex;
+    // gap: 20px;
+    margin-top: 20px;
+    width: inherit;
+    justify-content: space-around;
+}
+
 .output {
     display: flex;
     justify-content: space-around;
