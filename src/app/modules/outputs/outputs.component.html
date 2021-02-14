@@ -13,10 +13,10 @@
     </button>
     </div>
     <div class="output">
-        <audio controls="controls" preload="auto" id="audio_player" *ngIf="showOriginal">
+        <audio controls="controls" preload="metadata" id="audio_player" *ngIf="showOriginal">
       <source [src]="originalAudioUrl" type="audio/x-wav" />
     </audio>
-        <audio controls="controls" preload="auto" id="audio_player_2" *ngIf="showStitched">
+        <audio controls="controls" preload="metadata" id="audio_player_2" *ngIf="showStitched">
       <source [src]="stitchedAudioUrl" type="audio/x-wav" />
     </audio>
     </div>
