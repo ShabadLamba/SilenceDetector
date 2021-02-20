@@ -44,6 +44,7 @@ export class AudioUploadComponent implements OnInit {
   audioFile;
 
   addFiles() {
+    this.showLoader.emit(false);
     this.file.nativeElement.click();
   }
 
