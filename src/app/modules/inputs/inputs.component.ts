@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ConstantsServiceService } from 'src/app/shared/services/constants-service.service';
 
 @Component({
   selector: 'app-inputs',
@@ -6,15 +7,20 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./inputs.component.scss'],
 })
 export class InputsComponent implements OnInit {
-  constructor() {}
+  constructor(private constantsService: ConstantsServiceService) {}
 
   @Output() showOutputComponent = new EventEmitter<boolean>();
+  uploadedOnce = false;
+  isLoading = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.uploadedOnce = true;
+  }
 
   showUploadedOutput(val) {
     if (val) {
       this.showOutputComponent.emit(true);
+      this.uploadedOnce = true;
     } else {
       this.showOutputComponent.emit(false);
     }
@@ -23,8 +29,13 @@ export class InputsComponent implements OnInit {
   showRecoredOutput(val) {
     if (val) {
       this.showOutputComponent.emit(true);
+      this.uploadedOnce = true;
     } else {
       this.showOutputComponent.emit(false);
     }
+  }
+
+  showLoader(val) {
+    this.isLoading = val;
   }
 }

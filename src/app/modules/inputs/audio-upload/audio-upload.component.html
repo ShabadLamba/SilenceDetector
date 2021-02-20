@@ -1,9 +1,29 @@
-<div class="container">
-    <div class="heading">Upload an Audio</div>
-    <!-- <div><button mat-raised-button color="primary">Upload</button></div> -->
+<input type="file" #file style="display: none" (change)="onFilesAdded()" multiple accept="audio/wav" />
+<div [ngClass]="uploadedOnce ? 'container2' : 'container'">
+    <div [ngClass]="uploadedOnce ? 'heading2' : 'heading'">
+        {{ uploadedOnce ? "Upload" : "Upload an Audio" }}
+    </div>
     <div class="upload">
-        <div (click)="openUploadDialog()" class="upload-button">
-            <img src="./../../../../assets/Upload.png" width="240px" height="240px" />
+        <div [ngClass]="uploadedOnce ? 'upload-button2' : 'upload-button'" (click)="addFiles()">
+            <img src="./../../../../assets/upload-file.png" [ngStyle]="{
+          'width.px': uploadedOnce ? '120' : '240',
+          'height.px': uploadedOnce ? '120' : '240'
+        }" />
         </div>
+        <!-- <div class="uploadBtn" (click)="uploadAudio()" *ngIf="fileAdded">
+            upload
+        </div> -->
     </div>
 </div>
+
+<!-- <div class="container2" *ngIf="uploadedOnce">
+    <div class="heading2">Upload</div>
+    <div class="upload">
+        <div class="upload-button" (click)="addFiles()">
+            <img src="./../../../../assets/upload-file.png" width="120px" height="120px" />
+        </div>
+        <div class="uploadBtn" (click)="uploadAudio()" *ngIf="fileAdded">
+            upload
+        </div>
+    </div>
+</div> -->

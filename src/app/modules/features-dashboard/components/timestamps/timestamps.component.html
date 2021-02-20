@@ -1,0 +1,34 @@
+<div style="width: 95%; padding: 40px">
+    <div>
+        <div>Original</div>
+
+        <div id="waveform"></div>
+        <div id="wave-timeline"></div>
+
+        <button mat-raised-button *ngIf="wave" color="primary" (click)="onPlayPressed()" style="background: green !important; cursor: pointer; z-index: 1">
+      Play
+    </button>
+        <button mat-raised-button *ngIf="wave" color="warn" (click)="onStopPressed()" style="cursor: pointer; z-index: 1; margin-left: 10px">
+      Stop
+    </button>
+    </div>
+
+    <div style="padding-top: 10px">
+        <div>Stitched</div>
+
+        <div id="waveform2"></div>
+        <div id="wave-timeline2"></div>
+
+        <button mat-raised-button color="primary" *ngIf="wave2" (click)="onPlayPressedWave2()" style="background: green !important; cursor: pointer">
+      Play
+    </button>
+        <button mat-raised-button color="warn" *ngIf="wave2" (click)="onStopPressedWave2()" style="cursor: pointer; margin-left: 10px">
+      Stop
+    </button>
+    </div>
+    <!-- <div *ngIf="wave" class="controls">
+      <button (click)="onStopPressed()">Stop</button>
+  </div> -->
+
+    <!-- <button (click)="onPreviewPressed()">Click me</button> -->
+</div>

@@ -1,0 +1,51 @@
+.main {
+    height: 52vh;
+    width: 100%;
+    display: flex;
+}
+
+.navbar {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-left: 40px;
+    max-width: 20%;
+    min-width: 20%;
+    font-size: 28px;
+}
+
+.featureslist {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.feature {
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #353535;
+    }
+}
+
+.feature-active {
+    background-color: #353535;
+}
+
+.datadisplay {
+    height: 100%;
+    width: 80%;
+    background-color: #353535;
+    border-radius: 10px;
+}
+
+.original {}
+
+.stitched {}

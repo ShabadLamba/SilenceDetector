@@ -9,15 +9,18 @@
     align-items: center;
     // padding-top: 40px;
     position: relative;
-    gap: 80px;
+    gap: 20px;
     padding-top: 40px;
-    padding-bottom: 80px;
+    // padding-bottom: 80px;
 }
 
 .section {
     // padding-top: 40px;
     position: relative;
     width: 83vw;
+    background-color: #2a2a35;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .heading {
@@ -25,8 +28,9 @@
     height: max-content;
     font-size: 56px;
     font-family: "Roboto", sans-serif;
-    position: absolute;
+    // position: absolute;
     // left: 25px;
     letter-spacing: 0.4px;
-    left: 5.6%;
+    // left: 5.6%;
+    padding-left: 30px;
 }

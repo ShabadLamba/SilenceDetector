@@ -1,12 +1,28 @@
 <div class="main">
     <div class="section">
-        <div class="heading">Silence Detector</div>
+        <div class="heading-wrapper">
+            <div class="heading">Silence Detector</div>
+        </div>
     </div>
-    <div class="section">
-        <app-inputs (showOutputComponent)="showOutput($event)"></app-inputs>
+    <div class="section" style="
+      display: flex;
+      gap: 55px;
+      justify-content: space-around;
+      align-items: center;
+    " [ngStyle]="{
+      'flex-direction': uploadedOnce ? 'row' : 'column',
+      'height.vh': uploadedOnce ? '20' : 'auto'
+    }">
+        <div>
+            <app-inputs (showOutputComponent)="showOutput($event)"></app-inputs>
+        </div>
+
+        <div *ngIf="isOutputReady || uploadedOnce" style="display: flex; justify-content: center; align-items: center">
+            <app-outputs [outputReady]="isOutputReady"></app-outputs>
+        </div>
     </div>
 
-    <div *ngIf="isOutputReady" class="section" style="display: flex; justify-content: center; align-items: center">
-        <app-outputs></app-outputs>
+    <div class="section" style="width: 84vw; height: 52vh; padding: 0px" *ngIf="isOutputReady || uploadedOnce">
+        <app-features-dashboard></app-features-dashboard>
     </div>
 </div>

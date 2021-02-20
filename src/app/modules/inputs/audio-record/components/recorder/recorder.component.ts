@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RecordAudioService } from '../../services/record-audio.service';
 
@@ -13,6 +13,7 @@ export class RecorderComponent implements OnInit {
   isRecording = false;
   @Output() isRecordingEvent = new EventEmitter<boolean>();
   @Output() audioFile = new EventEmitter<any>();
+  @Input() uploadedOnce;
 
   recordedTime;
   blobUrl;
@@ -37,7 +38,16 @@ export class RecorderComponent implements OnInit {
     });
   }
 
+  toggleRecording() {
+    if (!this.isRecording) {
+      this.startRecording();
+    } else {
+      this.stopRecording();
+    }
+  }
+
   startRecording() {
+    this.blobUrl = null;
     if (!this.isRecording) {
       this.isRecording = true;
       this.isRecordingEvent.emit(true);
@@ -45,13 +55,13 @@ export class RecorderComponent implements OnInit {
     }
   }
 
-  abortRecording() {
-    if (this.isRecording) {
-      this.isRecording = false;
-      this.isRecordingEvent.emit(false);
-      this.audioRecordingService.abortRecording();
-    }
-  }
+  // abortRecording() {
+  //   if (this.isRecording) {
+  //     this.isRecording = false;
+  //     this.isRecordingEvent.emit(false);
+  //     this.audioRecordingService.abortRecording();
+  //   }
+  // }
 
   stopRecording() {
     if (this.isRecording) {
@@ -66,6 +76,7 @@ export class RecorderComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.abortRecording();
+    // this.abortRecording();
+    this.audioRecordingService.abortRecording();
   }
 }

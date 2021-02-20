@@ -1,0 +1,27 @@
+<div class="main">
+    <div class="navbar">
+        <div class="featuresHeading">Feature Comparison</div>
+        <div class="featureslist">
+            <div class="feature" (click)="showFeatureComponent('waveform')" [ngClass]="isActive === 'waveform' ? 'feature-active' : ''">
+                <div style="display: flex">
+                    <img src="./../../../assets/wave (1).png" width="32px" height="32px" />
+                </div>
+                <div>Wave Forms</div>
+            </div>
+            <div class="feature" (click)="showFeatureComponent('timestamp')" [ngClass]="isActive === 'timestamp' ? 'feature-active' : ''">
+                <div style="display: flex">
+                    <img src="./../../../assets/timeline.png" width="32px" height="32px" />
+                </div>
+                <div>Time stamps</div>
+            </div>
+        </div>
+    </div>
+    <div class="datadisplay">
+        <div *ngIf="isActive === 'waveform'">
+            <app-waveforms></app-waveforms>
+        </div>
+        <div *ngIf="isActive === 'timestamp'">
+            <app-timestamps></app-timestamps>
+        </div>
+    </div>
+</div>

@@ -1,17 +1,12 @@
-<div>
-    <button mat-raised-button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">
-    Start Recording
-  </button>
-    <button mat-raised-button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">
-    Stop Recording
-  </button>
-    <button mat-raised-button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">
-    Clear Recording
-  </button>
-    <div *ngIf="isRecording && !blobUrl">{{ recordedTime }}</div>
-    <div>
-        <audio *ngIf="!isRecording && blobUrl" controls>
-      <source [src]="blobUrl" type="audio/webm" />
-    </audio>
+<div style="position: relative">
+    <div class="start-button" (click)="toggleRecording()">
+        <img src="./../../../../../../assets/microphone.png" [ngStyle]="{
+        'width.px': uploadedOnce ? '120' : '240',
+        'height.px': uploadedOnce ? '120' : '240'
+      }" />
+        <div style="position: absolute; top: 110px; left: 100px" *ngIf="isRecording && !blobUrl">
+            {{ recordedTime }}
+        </div>
+        <div [ngClass]="uploadedOnce ? 'pulse-ring2' : 'pulse-ring'" *ngIf="isRecording"></div>
     </div>
 </div>

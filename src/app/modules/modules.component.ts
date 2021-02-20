@@ -9,12 +9,17 @@ export class ModulesComponent implements OnInit {
   constructor() {}
 
   isOutputReady = false;
+  uploadedOnce = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.isOutputReady = true;
+    // this.uploadedOnce = true;
+  }
 
   showOutput(val) {
     if (val) {
       this.isOutputReady = true;
+      this.uploadedOnce = true;
     } else {
       this.isOutputReady = false;
     }

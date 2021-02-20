@@ -12,7 +12,7 @@
       Stitched
     </button>
     </div>
-    <div class="output">
+    <div class="output" *ngIf="outputReady">
         <audio controls="controls" preload="metadata" id="audio_player" *ngIf="showOriginal">
       <source [src]="originalAudioUrl" type="audio/x-wav" />
     </audio>

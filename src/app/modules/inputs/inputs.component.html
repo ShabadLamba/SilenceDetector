@@ -1,6 +1,14 @@
 <div class="container">
-    <div class="inputs">
-        <app-audio-record (showOutput)="showRecoredOutput($event)"></app-audio-record>
-        <app-audio-upload (showOutput)="showUploadedOutput($event)"></app-audio-upload>
+    <div class="inputs" [ngStyle]="{
+      gap: uploadedOnce ? '40%' : '10%',
+      'margin-top.px': uploadedOnce ? '0' : '45',
+      'margin-left.px': uploadedOnce ? '80' : '0'
+    }">
+        <app-audio-record (showOutput)="showRecoredOutput($event)" (showLoader)="showLoader($event)" [uploadedOnce]="uploadedOnce"></app-audio-record>
+        <app-audio-upload (showOutput)="showUploadedOutput($event)" (showLoader)="showLoader($event)" [uploadedOnce]="uploadedOnce"></app-audio-upload>
+    </div>
+
+    <div *ngIf="isLoading" style="position: fixed; top: 40%; left: 45%; z-index: 1">
+        <img src="./../../../assets/Bean Eater-1s-200px.svg" />
     </div>
 </div>

@@ -1,8 +1,14 @@
-<div class="container">
-    <div class="heading">Record an Audio</div>
+<div [ngClass]="uploadedOnce ? 'container2' : 'container'">
+    <div [ngClass]="uploadedOnce ? 'heading2' : 'heading'">
+        {{ uploadedOnce ? "Record" : "Record an Audio" }}
+    </div>
     <div class="upload">
-        <div class="upload-button" (click)="openUploadDialog()">
+        <!-- <div class="upload-button" (click)="startRecording()" *ngIf="!isRecording">
             <img src="./../../../../assets/record.png" width="140px" height="240px" />
+        </div> -->
+        <div [ngClass]="uploadedOnce ? 'upload-button2' : 'upload-button'">
+            <app-recorder (audioFile)="setAudioBlobUrl($event)" (isRecordingEvent)="stoppedRecording($event)" [uploadedOnce]="uploadedOnce"></app-recorder>
         </div>
+        <!-- <div class="uploadBtn" (click)="uploadRecordedAudio()">upload</div> -->
     </div>
 </div>
