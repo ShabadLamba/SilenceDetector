@@ -28,7 +28,7 @@ export class WaveformsComponent implements OnInit {
 
   ngOnInit(): void {
     this.onPreviewPressed();
-    // this.getAudioUrls();
+    this.getAudioUrls();
   }
 
   getAudioUrls() {
