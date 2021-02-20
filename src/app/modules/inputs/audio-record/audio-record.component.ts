@@ -96,6 +96,7 @@ export class AudioRecordComponent implements OnInit {
             this.error = true;
             console.log(error.message);
             console.log('ERROR');
+            this.showLoader.emit(false);
           }
         );
     }
