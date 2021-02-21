@@ -15,8 +15,8 @@ import { ConstantsServiceService } from 'src/app/shared/services/constants-servi
 export class TimestampsComponent implements OnInit {
   wave: WaveSurfer = null;
   wave2: WaveSurfer = null;
-  url =
-    'https://ia800508.us.archive.org/15/items/LoveThemeFromTheGodfather/02LoveThemeFromTheGodfather.mp3';
+  // url =
+  //   'https://ia800508.us.archive.org/15/items/LoveThemeFromTheGodfather/02LoveThemeFromTheGodfather.mp3';
   // 'https://ia800508.us.archive.org/15/items/LoveThemeFromTheGodfather/02LoveThemeFromTheGodfather.mp3';
   stitchedUrl = '';
   originalUrl = '';
@@ -69,10 +69,11 @@ export class TimestampsComponent implements OnInit {
         // this.wave.play();
         // this.wave.enableDragSelection({});
         this.timeStamps.forEach((region) => {
+          console.log(region);
           this.wave.addRegion({
             start: region.start, // time in seconds
             end: region.end, // time in seconds
-            color: '#ef5261',
+            color: 'hsla(354, 83%, 63%, 0.1)', //'hsla(354, 83%, 63%, 0.1);',
             drag: false,
             resize: false,
           });
@@ -123,9 +124,9 @@ export class TimestampsComponent implements OnInit {
 
     this.cdr.detectChanges();
 
-    Promise.resolve().then(() => this.wave.load(this.url));
+    Promise.resolve().then(() => this.wave.load(this.originalUrl));
 
-    Promise.resolve().then(() => this.wave2.load(this.originalUrl));
+    Promise.resolve().then(() => this.wave2.load(this.stitchedUrl));
   }
 
   onPlayPressed(): void {
@@ -133,7 +134,7 @@ export class TimestampsComponent implements OnInit {
   }
 
   onPlayPressedWave2(): void {
-    this.wave.play();
+    this.wave2.play();
   }
 
   onStopPressed(): void {

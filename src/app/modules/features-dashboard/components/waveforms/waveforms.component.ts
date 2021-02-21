@@ -15,8 +15,8 @@ import { ConstantsServiceService } from 'src/app/shared/services/constants-servi
 export class WaveformsComponent implements OnInit {
   wave: WaveSurfer = null;
   wave2: WaveSurfer = null;
-  url =
-    'https://ia800508.us.archive.org/15/items/LoveThemeFromTheGodfather/02LoveThemeFromTheGodfather.mp3';
+  // url =
+  //   'https://ia800508.us.archive.org/15/items/LoveThemeFromTheGodfather/02LoveThemeFromTheGodfather.mp3';
   // 'https://ia800508.us.archive.org/15/items/LoveThemeFromTheGodfather/02LoveThemeFromTheGodfather.mp3';
   stitchedUrl = '';
   originalUrl = '';
@@ -115,9 +115,9 @@ export class WaveformsComponent implements OnInit {
 
     this.cdr.detectChanges();
 
-    Promise.resolve().then(() => this.wave.load(this.url));
+    Promise.resolve().then(() => this.wave.load(this.originalUrl));
 
-    Promise.resolve().then(() => this.wave2.load(this.originalUrl));
+    Promise.resolve().then(() => this.wave2.load(this.stitchedUrl));
   }
 
   onPlayPressed(): void {
@@ -125,7 +125,7 @@ export class WaveformsComponent implements OnInit {
   }
 
   onPlayPressedWave2(): void {
-    this.wave.play();
+    this.wave2.play();
   }
 
   onStopPressed(): void {
