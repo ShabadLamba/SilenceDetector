@@ -1,8 +1,8 @@
 <div class="container">
     <div class="inputs" [ngStyle]="{
-      gap: uploadedOnce ? '40%' : '10%',
+      gap: uploadedOnce ? '35%' : '10%',
       'margin-top.px': uploadedOnce ? '0' : '45',
-      'margin-left.px': uploadedOnce ? '80' : '0'
+      'margin-left.px': uploadedOnce ? '40' : '0'
     }">
         <app-audio-record (showOutput)="showRecoredOutput($event)" (showLoader)="showLoader($event)" [uploadedOnce]="uploadedOnce"></app-audio-record>
         <app-audio-upload (showOutput)="showUploadedOutput($event)" (showLoader)="showLoader($event)" [uploadedOnce]="uploadedOnce"></app-audio-upload>

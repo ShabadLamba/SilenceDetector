@@ -9,9 +9,10 @@
       gap: 55px;
       justify-content: space-around;
       align-items: center;
+      height: auto;
     " [ngStyle]="{
       'flex-direction': uploadedOnce ? 'row' : 'column',
-      'height.vh': uploadedOnce ? '20' : 'auto'
+      'min-height.vh': uploadedOnce ? '20' : 'auto'
     }">
         <div>
             <app-inputs (showOutputComponent)="showOutput($event)"></app-inputs>
