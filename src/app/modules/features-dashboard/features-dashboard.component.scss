@@ -1,5 +1,6 @@
 .main {
-    height: 52vh;
+    height: stretch;
+    min-height: 52vh;
     width: 100%;
     display: flex;
 }
@@ -42,7 +43,8 @@
 }
 
 .datadisplay {
-    height: 100%;
+    height: stretch;
+    min-height: 52vh;
     width: 80%;
     background-color: #353535;
     border-radius: 10px;

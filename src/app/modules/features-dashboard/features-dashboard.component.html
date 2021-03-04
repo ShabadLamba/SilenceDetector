@@ -30,7 +30,7 @@
             <app-timestamps></app-timestamps>
         </div>
         <div *ngIf="isActive === 'engery'">
-            <app-engery-graph></app-engery-graph>
+            <app-engery-graph [data]="data"></app-engery-graph>
         </div>
     </div>
 </div>

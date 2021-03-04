@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="section" style="width: 84vw; height: 52vh; padding: 0px" *ngIf="isOutputReady || uploadedOnce">
-        <app-features-dashboard></app-features-dashboard>
+    <div class="section" style="width: 84vw; min-height: 52vh; height: auto; padding: 0px" *ngIf="isOutputReady || uploadedOnce">
+        <app-features-dashboard [isOutputReady]="isOutputReady"></app-features-dashboard>
     </div>
 </div>
