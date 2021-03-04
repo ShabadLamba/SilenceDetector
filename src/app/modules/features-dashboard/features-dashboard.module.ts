@@ -5,6 +5,7 @@ import { TimestampsComponent } from './components/timestamps/timestamps.componen
 import { FeaturesDashboardComponent } from './features-dashboard.component';
 import { MatButtonModule } from '@angular/material/button';
 import { EngeryGraphComponent } from './components/engery-graph/engery-graph.component';
+import { AutocorrelationComponent } from './components/autocorrelation/autocorrelation.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { EngeryGraphComponent } from './components/engery-graph/engery-graph.com
     TimestampsComponent,
     FeaturesDashboardComponent,
     EngeryGraphComponent,
+    AutocorrelationComponent,
   ],
   imports: [CommonModule, MatButtonModule],
   exports: [

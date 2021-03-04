@@ -14,11 +14,17 @@
                 </div>
                 <div>Time stamps</div>
             </div>
-            <div class="feature" (click)="showFeatureComponent('engery')" [ngClass]="isActive === 'engery' ? 'feature-active' : ''">
+            <div class="feature" (click)="showFeatureComponent('energy')" [ngClass]="isActive === 'energy' ? 'feature-active' : ''">
                 <div style="display: flex">
                     <img src="./../../../assets/energy.svg" width="32px" height="32px" />
                 </div>
                 <div>Energy graph</div>
+            </div>
+            <div class="feature" (click)="showFeatureComponent('autocorrelation')" [ngClass]="isActive === 'autocorrelation' ? 'feature-active' : ''">
+                <div style="display: flex">
+                    <img src="./../../../assets/energy.svg" width="32px" height="32px" />
+                </div>
+                <div>Autocorrelation graph</div>
             </div>
         </div>
     </div>
@@ -29,8 +35,11 @@
         <div *ngIf="isActive === 'timestamp'">
             <app-timestamps></app-timestamps>
         </div>
-        <div *ngIf="isActive === 'engery'">
+        <div *ngIf="isActive === 'energy'">
             <app-engery-graph [data]="data"></app-engery-graph>
+        </div>
+        <div *ngIf="isActive === 'autocorrelation'">
+            <app-autocorrelation [data]="data"></app-autocorrelation>
         </div>
     </div>
 </div>
