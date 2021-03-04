@@ -12,6 +12,8 @@ export class FeaturesDashboardComponent implements OnInit {
 
   isActive = '';
   public data: { x_value: number; y_value: number }[] = [];
+  // public stitchedAudioData: { x_value: number; y_value: number }[] = [];
+
   @Input() isOutputReady = false;
 
   ngOnInit(): void {
@@ -32,41 +34,93 @@ export class FeaturesDashboardComponent implements OnInit {
     this.formatData();
   }
 
-  formatData() {
-    this.data = [];
+  formatData() {}
+
+  updateData(val) {
+    console.log(val);
     console.log(this.isActive);
-    if (this.isActive === 'energy') {
-      for (
-        let i = 0;
-        i < this.constantsService.getApiData()['features']['frames'].length;
-        i++
-      ) {
-        this.data.push({
-          x_value: this.constantsService.getApiData()['features']['frames'][i],
-          y_value: Math.abs(
-            this.constantsService.getApiData()['features']['log_energy_values'][
-              i
-            ]
-          ),
-        });
+    console.log(this.data);
+    this.data = [];
+    if (val === 'original') {
+      if (this.isActive === 'energy') {
+        for (
+          let i = 0;
+          i <
+          this.constantsService.getApiData()['original_features']['frames']
+            .length;
+          i++
+        ) {
+          this.data.push({
+            x_value: this.constantsService.getApiData()['original_features'][
+              'frames'
+            ][i],
+            y_value: Math.abs(
+              this.constantsService.getApiData()['original_features'][
+                'log_energy_values'
+              ][i]
+            ),
+          });
+        }
+      } else if (this.isActive === 'autocorrelation') {
+        for (
+          let i = 0;
+          i <
+          this.constantsService.getApiData()['original_features']['frames']
+            .length;
+          i++
+        ) {
+          this.data.push({
+            x_value: this.constantsService.getApiData()['original_features'][
+              'frames'
+            ][i],
+            y_value: Math.abs(
+              this.constantsService.getApiData()['original_features'][
+                'normalised_ac_values'
+              ][i]
+            ),
+          });
+        }
       }
-    } else if (this.isActive === 'autocorrelation') {
-      for (
-        let i = 0;
-        i < this.constantsService.getApiData()['features']['frames'].length;
-        i++
-      ) {
-        this.data.push({
-          x_value: this.constantsService.getApiData()['features']['frames'][i],
-          y_value: Math.abs(
-            this.constantsService.getApiData()['features'][
-              'normalised_ac_values'
-            ][i]
-          ),
-        });
+    } else if (val === 'stitched') {
+      if (this.isActive === 'energy') {
+        for (
+          let i = 0;
+          i <
+          this.constantsService.getApiData()['stitched_features']['frames']
+            .length;
+          i++
+        ) {
+          this.data.push({
+            x_value: this.constantsService.getApiData()['stitched_features'][
+              'frames'
+            ][i],
+            y_value: Math.abs(
+              this.constantsService.getApiData()['stitched_features'][
+                'log_energy_values'
+              ][i]
+            ),
+          });
+        }
+      } else if (this.isActive === 'autocorrelation') {
+        for (
+          let i = 0;
+          i <
+          this.constantsService.getApiData()['stitched_features']['frames']
+            .length;
+          i++
+        ) {
+          this.data.push({
+            x_value: this.constantsService.getApiData()['stitched_features'][
+              'frames'
+            ][i],
+            y_value: Math.abs(
+              this.constantsService.getApiData()['stitched_features'][
+                'normalised_ac_values'
+              ][i]
+            ),
+          });
+        }
       }
     }
-
-    console.log(this.data);
   }
 }

@@ -1,4 +1,12 @@
-import { Component, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+} from '@angular/core';
 import * as d3 from 'd3';
 import * as d3Scale from 'd3';
 import * as d3Shape from 'd3';
@@ -15,6 +23,7 @@ export class AutocorrelationComponent implements OnInit, OnChanges {
   public title = 'Frames vs Autocorrelation';
 
   @Input() public data: { x_value: number; y_value: number }[];
+  @Output() public audioGraphChanged = new EventEmitter<String>();
 
   private width = 720;
   private height = 340;
@@ -37,11 +46,16 @@ export class AutocorrelationComponent implements OnInit, OnChanges {
     // this.addXandYAxis();
     // this.drawLineAndPath();
     // this.zoomASection();
+    d3.selectAll('svg').remove();
+  }
+
+  changeAudioGraph(val) {
+    this.audioGraphChanged.emit(val);
   }
 
   public ngOnChanges(changes): void {
     if (changes.hasOwnProperty('data') && this.data) {
-      d3.selectAll('svg > *').remove();
+      d3.selectAll('svg').remove();
       console.log(this.data);
       this.initializeChart();
       this.drawChart();

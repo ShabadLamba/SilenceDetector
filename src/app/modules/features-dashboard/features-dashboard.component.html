@@ -36,10 +36,10 @@
             <app-timestamps></app-timestamps>
         </div>
         <div *ngIf="isActive === 'energy'">
-            <app-engery-graph [data]="data"></app-engery-graph>
+            <app-engery-graph [data]="data" (audioGraphChanged)="updateData($event)"></app-engery-graph>
         </div>
         <div *ngIf="isActive === 'autocorrelation'">
-            <app-autocorrelation [data]="data"></app-autocorrelation>
+            <app-autocorrelation [data]="data" (audioGraphChanged)="updateData($event)"></app-autocorrelation>
         </div>
     </div>
 </div>

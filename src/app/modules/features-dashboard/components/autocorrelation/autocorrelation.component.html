@@ -1,5 +1,11 @@
 <div style="margin-left: 35px; margin-top: 20px; margin-bottom: 0px">
     {{ title }}
 </div>
-<!-- <svg width="900" height="300"></svg> -->
+<button mat-raised-button style="margin-left: 35px; margin-top: 20px; margin-bottom: 0px" (click)="changeAudioGraph('original')">
+  Original
+</button>
+<button mat-raised-button style="margin-left: 35px; margin-top: 20px; margin-bottom: 0px" (click)="changeAudioGraph('stitched')">
+  Stitched
+</button>
+
 <div class="linechart"></div>
